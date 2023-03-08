@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "nbdev_tutorial"
+  site-url: "https://hoangtrung020541.github.io/nbdev_tutorial"
+  description: "A tutorial on how to use nbdev for AI engineers"
+  repo-branch: main
+  repo-url: "https://github.com/hoangtrung020541/nbdev_tutorial"
