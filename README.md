@@ -67,13 +67,14 @@ Guide](https://www.markdownguide.org/).
   \> `setting.ini`: Chứa các thông số cấu hình cho project như tên tác
   giả, tên dự án, version …  
   \> `setting.py`  
-  \> ![image.png](index_files/figure-commonmark/4538d2bb-1-image.png)
+  \> ![image.png](index_files/figure-commonmark/6f07e067-1-image.png)
 
 ### 4. Push repository đã được khởi tạo nbdev lên GitHub
 
-- Các command sau để push lên github: \> `git add .`  
-  \> `git commit -m 'chore: initial commit'`  
-  \> `git push`  
+- Các command sau để push lên github:  
+       `git add .`  
+       `git commit -m 'chore: initial commit'`  
+       `git push`  
 - Sau khi push reposirory nbdev của bạn lên GitHub, điều hướng đến
   `Actions`, nếu bạn sẽ thấy `CI` bị Fail. Điều này là do GitHub mặc
   định giới hạn PAT permission, hãy nhấp vào **settings** trong
@@ -86,12 +87,12 @@ Guide](https://www.markdownguide.org/).
 - Bạn cần enable GitHub Pages cho repository của mình bằng cách nhấp vào
   **settings** trong repository `Setting > Pages > Branch` chọn branch
   bạn muốn và `Save`.
-  ![3.png](index_files/figure-commonmark/8a053fb1-1-3.png)
+  ![3.png](index_files/figure-commonmark/64c047f6-1-3.png)
 
 - Việc enable GitHub Pages này sẽ tạo ra một pages docs beautiful như
   này [nbdev page
   example](https://hoangtrung020541.github.io/nbdev_cards/).
-  ![image.png](index_files/figure-commonmark/34e50d8b-1-image.png)
+  ![image.png](index_files/figure-commonmark/87cbb1f1-1-image.png)
 
 ### 6. Các bước cơ bản để build một nbdev repository
 
@@ -115,20 +116,20 @@ Guide](https://www.markdownguide.org/).
   cuối mỗi file notebook để export thay vì sử dụng command.
 
 > Ví dụ trong hình dưới, đây là file `00_card.ipynb` trong folder `/nbs`
-> ![image-2.png](index_files/figure-commonmark/ac0d5a67-1-image-2.png)
+> ![image-2.png](index_files/figure-commonmark/94819755-1-image-2.png)
 
 > Và đây là kết quả khi sử dụng command `nbdev_export`, nbdev sẽ convert
 > file `/nbs/00_card.ipynb` thành file `/nbdev_cards/card.py` (cụ thể
 > tại những cell có `#| export` trên notebook sẽ được convert qua file
 > `.py`)
-> ![image.png](index_files/figure-commonmark/b28579ad-1-image.png)
+> ![image.png](index_files/figure-commonmark/5be426f4-1-image.png)
 
 > Ngoài ra file `00_card.ipynb` cũng sẽ được update lên [GitHub
 > Page](https://hoangtrung020541.github.io/nbdev_cards/card.html) khi
 > push repository lên github thông qua `CI` của nbdev. Trong đó các số
 > thứ tự trước tên file `ipynb` sẽ quyết định thứ tự của chúng trên
 > page, file `index.ipynb` sẽ nằm đầu tiên.
-> ![6.png](index_files/figure-commonmark/93f092eb-1-6.png)
+> ![6.png](index_files/figure-commonmark/8eb81bd4-1-6.png)
 
 - **Install package** sử dụng command `pip install -e '.[dev]'`.  
   Command này được sử dụng trong quá trình develop một Python package để
@@ -146,20 +147,21 @@ Guide](https://www.markdownguide.org/).
   trông chúng sẽ như thế nào khi được đưa lên GitHub Page.
 
 - **Prepare change** sử dụng command `nbdev_prepare`.  
-  Sử dụng trước khi commit hoặc push, để đảm bảo các module của bạn được
-  export đúng cách và các bài test được vượt qua. Trong đó
-  `nbdev_prepare` gói các lệnh sau: \> `nbdev_export`: Build file`.py`
-  module từ Jupyter notebooks  
-  \> `nbdev_test`: Tests các notebooks  
-  \> `nbdev_clean`: Loại bỏ các output thừa trong notebook để tạo ra một
-  phiên bản notebook “sạch” hơn để đăng trên Github  
-  \> `nbdev_readme`: Updates README.md từ file `index.ipynb`.
+  Sử dụng trước khi commit hoặc push lên github, để đảm bảo các module
+  của bạn được export đúng cách và các bài test được vượt qua. Trong đó
+  command `nbdev_prepare`đóng gói các lệnh sau:  
+       `nbdev_export`: Build file`.py` module từ Jupyter notebooks  
+       `nbdev_test`: Tests các notebooks  
+       `nbdev_clean`: Loại bỏ các output thừa trong notebook để tạo ra
+  một phiên bản notebook “sạch” hơn để đăng trên Github  
+       `nbdev_readme`: Updates README.md từ file `index.ipynb`.
 
 - **Push lên Github**  
   Lỗi có thể xảy ra vì bạn quên chạy command `nbdev_prepare`. Vì vậy,
   hãy nhớ chạy command này trước khi push lên GitHub, các command để
-  push github: \> `git add .`  
-  \> `git commit -m <message>`  
-  \> `git push`
+  push github:  
+       `git add .`  
+       `git commit -m <message>`  
+       `git push`
 
 ## Directives
