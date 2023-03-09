@@ -7,10 +7,10 @@ nbdev Tutorial
 
 Là một AI engineer, bạn chủ yếu làm việc với các file `.ipynb` . Tuy
 nhiên, trong quá trình triển khai production, các file `.py` là bắt buộc
-để các model AI có thể hoạt động với Web backend. Tuy nhiên, hầu hết các
-người mới bắt đầu đều thiếu software skill và không thể chuyển đổi được.
-Đó là lý do tại sao [nbdev](https://nbdev.fast.ai) ra đời và đến giải
-cứu bạn.
+để các model AI có thể hoạt động với Web backend. Tuy nhiên, hầu hết
+những người mới bắt đầu đều thiếu software skill và khó khăn trong việc
+code các file Python. Đó là lý do tại sao [nbdev](https://nbdev.fast.ai)
+ra đời và đến giải cứu bạn.
 
 Nbdev là một battery-ready notebook development platform, được xây dựng
 trên [Quarto](https://quarto.org) platform. Nó cho phép: - Đồng bộ giữa
@@ -48,8 +48,8 @@ Guide](https://www.markdownguide.org/).
 
 ### 3. Khởi tạo nbdev trên repository
 
-- Khởi tạo nbdev trên repository bằng cách nhập `nbdev_new` trên
-  terminal
+- Khởi tạo nbdev trên repository bằng cách sử dụng command `nbdev_new`
+  trên terminal
 - Sau khi khởi tạo nbdev, một số file và folder được tạo ra: \>
   `.github`: Chứa workflow cho CI.  
   \> `_proc`  
@@ -67,7 +67,7 @@ Guide](https://www.markdownguide.org/).
   \> `setting.ini`: Chứa các thông số cấu hình cho project như tên tác
   giả, tên dự án, version …  
   \> `setting.py`  
-  \> ![image.png](index_files/figure-commonmark/f4222b24-1-image.png)
+  \> ![image.png](index_files/figure-commonmark/4538d2bb-1-image.png)
 
 ### 4. Push repository đã được khởi tạo nbdev lên GitHub
 
@@ -86,14 +86,12 @@ Guide](https://www.markdownguide.org/).
 - Bạn cần enable GitHub Pages cho repository của mình bằng cách nhấp vào
   **settings** trong repository `Setting > Pages > Branch` chọn branch
   bạn muốn và `Save`.
-
-![3.png](index_files/figure-commonmark/bd49a1f7-1-3.png)
+  ![3.png](index_files/figure-commonmark/8a053fb1-1-3.png)
 
 - Việc enable GitHub Pages này sẽ tạo ra một pages docs beautiful như
   này [nbdev page
   example](https://hoangtrung020541.github.io/nbdev_cards/).
-
-![image.png](index_files/figure-commonmark/837c6b5e-1-image.png)
+  ![image.png](index_files/figure-commonmark/34e50d8b-1-image.png)
 
 ### 6. Các bước cơ bản để build một nbdev repository
 
@@ -104,45 +102,48 @@ Guide](https://www.markdownguide.org/).
   giữ code và repository được tổ chức và nhất quán.
 
 - **Edit .ipynb**  
-  Phần này sẽ nêu chi tiết trong phần
-  <font color="salmon">Directives!</font> ở sau
+  Truy cập vào folder `/nbs` để tạo và edit các file notebook ở đây, chi
+  tiết các viết nbdev notebook sẽ được nêu trong phần
+  <font color="salmon">Directives</font> ở sau.
 
 - **Build library** sử dụng command `nbdev_export`.  
-  ‘nbdev_export’ giúp convert từ Jupyter Notebook `.ipynb` file trong
-  repository thành file Python code `.py` và sử dụng làm library trong
-  các project khác, giúp code có thể reusable, maintainable và dễ dàng
-  tích hợp vào các project khác. Ngoài ra nbdev còn convert file
-  `.ipynb` hiển thị trên GitHub Page.
+  Command này giúp convert từ file Jupyter Notebook `.ipynb` thành file
+  Python `.py` và sử dụng làm library trong project, giúp code có thể
+  reusable, maintainable và dễ dàng tích hợp vào các project khác. Ngoài
+  ra nbdev còn convert file `.ipynb` hiển thị trên GitHub Page.  
+  Note: Bạn cũng có thể sử dụng `import nbdev; nbdev.nbdev_export()` tại
+  cuối mỗi file notebook để export thay vì sử dụng command.
 
 > Ví dụ trong hình dưới, đây là file `00_card.ipynb` trong folder `/nbs`
-> (lưu ý: các file notebook phải được viết trong folder `/nbs`)
-> ![image-2.png](index_files/figure-commonmark/ebbd1bf4-1-image-2.png)
+> ![image-2.png](index_files/figure-commonmark/ac0d5a67-1-image-2.png)
 
 > Và đây là kết quả khi sử dụng command `nbdev_export`, nbdev sẽ convert
-> file `/nbs/00_card.ipynb` thành file `/nbdev_cards/card.py`
-> ![image.png](index_files/figure-commonmark/90c040c7-1-image.png)
+> file `/nbs/00_card.ipynb` thành file `/nbdev_cards/card.py` (cụ thể
+> tại những cell có `#| export` trên notebook sẽ được convert qua file
+> `.py`)
+> ![image.png](index_files/figure-commonmark/b28579ad-1-image.png)
 
 > Ngoài ra file `00_card.ipynb` cũng sẽ được update lên [GitHub
 > Page](https://hoangtrung020541.github.io/nbdev_cards/card.html) khi
 > push repository lên github thông qua `CI` của nbdev. Trong đó các số
 > thứ tự trước tên file `ipynb` sẽ quyết định thứ tự của chúng trên
 > page, file `index.ipynb` sẽ nằm đầu tiên.
-
-> ![6.png](index_files/figure-commonmark/e8415a64-1-6.png)
+> ![6.png](index_files/figure-commonmark/93f092eb-1-6.png)
 
 - **Install package** sử dụng command `pip install -e '.[dev]'`.  
-  Lệnh này được sử dụng trong quá trình develop một Python package để
+  Command này được sử dụng trong quá trình develop một Python package để
   cho phép package được cài đặt và sử dụng trong environment trực tiếp
-  trong khi source code đang được chỉnh sửa.  
+  trong khi source code đang được chỉnh sửa, thường được sử dụng sau khi
+  bạn export một file notebook.  
   *Note: Nếu bạn thực hiện các thay đổi đối với code mà không ảnh hưởng
   đến quá trình install (chẳng hạn như thêm các feature mới hoặc fix
   bug), bạn có thể không cần phải chạy lệnh này.*
 
 - **Preview docs** sử dụng command `nbdev_preview`.  
-  Khi run command này, terminal sẽ hiển thị một browser link ở định dạng
-  HTML chạy trên local (ví dụ như `http://localhost:3744/`). Click vào
-  link để xem trước các notebook trông chúng sẽ như thế nào khi được đưa
-  lên GitHub Page.
+  Sau khi hoàn chỉnh một file notebook, khi run command này terminal sẽ
+  hiển thị một browser link ở định dạng HTML chạy trên local (ví dụ như
+  `http://localhost:3744/`). Click vào link để xem trước các notebook
+  trông chúng sẽ như thế nào khi được đưa lên GitHub Page.
 
 - **Prepare change** sử dụng command `nbdev_prepare`.  
   Sử dụng trước khi commit hoặc push, để đảm bảo các module của bạn được
