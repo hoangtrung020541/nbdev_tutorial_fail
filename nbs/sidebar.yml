@@ -5,3 +5,6 @@ website:
       - 00_card.ipynb
       - 01_desk.ipynb
       - 03_test.ipynb
+      - nbdev.yml
+      - sidebar.yml
+      - styles.css
