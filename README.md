@@ -77,7 +77,7 @@ Guide](https://www.markdownguide.org/).
   `setting.ini` Chứa các thông số cấu hình cho project như tên tác giả,
   tên dự án, version …  
   `setting.py`  
-  ![](index_files/figure-commonmark/fbd5b532-1-image.png)
+  ![](index_files/figure-commonmark/bac93390-1-image.png)
 
 ### 4. Push repository đã được khởi tạo nbdev lên GitHub
 
@@ -97,12 +97,12 @@ Guide](https://www.markdownguide.org/).
 - Bạn cần kích hoạt GitHub Pages cho repository của mình bằng cách nhấp
   vào **settings** trong repository `Setting > Pages > Branch` chọn
   branch bạn muốn và `Save`.
-  ![](index_files/figure-commonmark/e7864362-1-3.png)
+  ![](index_files/figure-commonmark/228fb0fe-1-3.png)
 
 - Việc kích hoạt GitHub Pages này sẽ tạo ra một pages docs trông
   beautiful như này [nbdev page
   example](https://hoangtrung020541.github.io/nbdev_cards/).
-  ![](index_files/figure-commonmark/de63a1b5-1-image.png)
+  ![](index_files/figure-commonmark/4e3ea3f6-1-image.png)
 
 ### 6. Các bước cơ bản để build một nbdev repository
 
@@ -127,19 +127,19 @@ Guide](https://www.markdownguide.org/).
   cuối mỗi file notebook để export thay vì sử dụng command.
 
 > Ví dụ trong hình dưới, đây là file `00_card.ipynb` trong folder `/nbs`
-> ![](index_files/figure-commonmark/0b01b843-1-image-2.png)
+> ![](index_files/figure-commonmark/32a72064-1-image-2.png)
 
 > Và đây là kết quả khi sử dụng command `nbdev_export`, nbdev sẽ convert
 > file `/nbs/00_card.ipynb` thành file `/nbdev_cards/card.py` (cụ thể
 > tại những cell có `#| export` trên notebook sẽ được convert qua file
-> `.py`) ![](index_files/figure-commonmark/913be103-1-image.png)
+> `.py`) ![](index_files/figure-commonmark/e79ab36b-1-image.png)
 
 > Ngoài ra file `00_card.ipynb` cũng sẽ được update lên [GitHub
 > Page](https://hoangtrung020541.github.io/nbdev_cards/card.html) khi
 > push repository lên github thông qua `CI` của nbdev. Trong đó các số
 > thứ tự trước tên file `ipynb` sẽ quyết định thứ tự của chúng trên
 > page, file `index.ipynb` sẽ nằm đầu tiên.
-> ![](index_files/figure-commonmark/9a8c1537-1-6.png)
+> ![](index_files/figure-commonmark/3ec86005-1-6.png)
 
 - **Install package** sử dụng command `pip install -e '.[dev]'`.  
   Command này được sử dụng trong quá trình develop một Python package để
@@ -208,7 +208,7 @@ quả output của cell. - `#| code-fold: <show|true>` Để thu gọn cell code
   qua `showdoc.show_doc`.
 - `#| exporti`Để đánh dấu một hàm hay một đoạn code trong tệp notebook
   để được xuất ra như một phần của một module con riêng biệt, ví dụ sau:
-  ![](index_files/figure-commonmark/39aaa33e-1-image.png)
+  ![](index_files/figure-commonmark/d96853bb-1-image.png)
 
 ### 3. Cell Execution
 
@@ -221,4 +221,4 @@ quả output của cell. - `#| code-fold: <show|true>` Để thu gọn cell code
 Bạn có thể chạy command `nbdev_help` trên terminal để xem danh sách đầy
 đủ các command có sẵn:
 
-![](index_files/figure-commonmark/b27a189a-1-image.png)
+![](index_files/figure-commonmark/3ac99bd5-1-image.png)
